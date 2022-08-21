@@ -21,7 +21,15 @@
 
   <div class="container">
     <div class="row">
-
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="list-style:none; color:red" class=flashes>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
       <div class="col-lg-8 col-md-10 mx-auto content">
         {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
       </div>
