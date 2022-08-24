@@ -35,6 +35,7 @@ gravatar = Gravatar(app,
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+db.create_all()
 
 
 ##CONFIGURE TABLES
